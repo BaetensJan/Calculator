@@ -42,18 +42,19 @@ namespace CalculatorTestFramework
 
         [SetUp]
         public void SetUp()
-        { 
+        {
             // Before each test
+            var output = calculatorApplicationModel.CalculatorWindow.OutputField.Text;
+            if (output != null && output.Equals("Off"))
+            {
+                calculatorApplicationModel.CalculatorWindow.OnButton.Click();
+            }
         }
 
         [Test]
         public void ClickOnePlusSixTest()
         {
-            // Assert output is Off
-            Assert.That(calculatorApplicationModel.CalculatorWindow.OutputField.Text.Equals("Off"));
-
             // Enable calc and do calculation 1+6
-            calculatorApplicationModel.CalculatorWindow.OnButton.Click();
             calculatorApplicationModel.CalculatorWindow.OneButton.Click();
             calculatorApplicationModel.CalculatorWindow.AddButton.Click();
             calculatorApplicationModel.CalculatorWindow.SixButton.Click();
@@ -64,16 +65,38 @@ namespace CalculatorTestFramework
 
             // Clear and disable calc
             calculatorApplicationModel.CalculatorWindow.ClearButton.Click();
-            calculatorApplicationModel.CalculatorWindow.OffButton.Click();
+        }
 
-            // Assert out is Off
-            Assert.That(calculatorApplicationModel.CalculatorWindow.OutputField.Text.Equals("Off"));
+        [Test]
+        public void ClickTwoPlusMultiplierTest()
+        {
+            calculatorApplicationModel.CalculatorWindow.TwoButton.Click();
+            calculatorApplicationModel.CalculatorWindow.AddButton.Click();
+            calculatorApplicationModel.CalculatorWindow.MultiplyButton.Click();
+            calculatorApplicationModel.CalculatorWindow.CalcButton.Click(); 
+            Assert.That(calculatorApplicationModel.CalculatorWindow.OutputField.Text.Equals("Error! Try again."));
+        }
+
+        [Test]
+        public void ClickThreeMinusNineTest()
+        {
+            calculatorApplicationModel.CalculatorWindow.ThreeButton.Click();
+            calculatorApplicationModel.CalculatorWindow.MinusButton.Click();
+            calculatorApplicationModel.CalculatorWindow.NineButton.Click();
+            calculatorApplicationModel.CalculatorWindow.CalcButton.Click();
+            Assert.That(calculatorApplicationModel.CalculatorWindow.OutputField.Text.Equals("3-9= -6"));
         }
 
         [TearDown]
         public void TearDown()
         {
             // Clean up after each test
+
+            var output = calculatorApplicationModel.CalculatorWindow.OutputField.Text;
+            if (output == null || !output.Equals("Off"))
+            {
+                calculatorApplicationModel.CalculatorWindow.OffButton.Click();
+            }
         }
 
         [OneTimeTearDown]

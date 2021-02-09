@@ -102,6 +102,61 @@
             </properties>
           </identification>
         </object>
+        <object technology="WPF" type="Button">
+          <name>*</name>
+          <codeName>MultiplyButton</codeName>
+          <description />
+          <identification>
+            <properties>
+              <property name="ObjectName" type="string">multButton</property>
+              <property name="Text" type="string">*</property>
+            </properties>
+          </identification>
+        </object>
+        <object technology="WPF" type="Button">
+          <name>2</name>
+          <codeName>TwoButton</codeName>
+          <description />
+          <identification>
+            <properties>
+              <property name="ObjectName" type="string">twoButton</property>
+              <property name="Text" type="string">2</property>
+            </properties>
+          </identification>
+        </object>
+        <object technology="WPF" type="Button">
+          <name>3</name>
+          <codeName>ThreeButton</codeName>
+          <description />
+          <identification>
+            <properties>
+              <property name="ObjectName" type="string">threeButton</property>
+              <property name="Text" type="string">3</property>
+            </properties>
+          </identification>
+        </object>
+        <object technology="WPF" type="Button">
+          <name>-</name>
+          <codeName>MinusButton</codeName>
+          <description />
+          <identification>
+            <properties>
+              <property name="ObjectName" type="string">subButton</property>
+              <property name="Text" type="string">-</property>
+            </properties>
+          </identification>
+        </object>
+        <object technology="WPF" type="Button">
+          <name>9</name>
+          <codeName>NineButton</codeName>
+          <description />
+          <identification>
+            <properties>
+              <property name="ObjectName" type="string">nineButton</property>
+              <property name="Text" type="string">9</property>
+            </properties>
+          </identification>
+        </object>
       </children>
     </object>
   </objects>

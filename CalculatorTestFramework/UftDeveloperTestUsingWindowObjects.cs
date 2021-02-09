@@ -8,12 +8,12 @@ using UFTDeveloperTestProject1.PageObjects;
 namespace CalculatorTestFramework
 {
     [TestFixture]
-    public class UftDeveloperTestUsingPageObjects : UnitTestClassBase
+    public class UftDeveloperTestUsingWindowObjects : UnitTestClassBase
         
     {
 
         private IAut application;
-        private CalculatorPage calculatorPage;
+        private CalculatorWindow calculatorWindow;
 
         [OneTimeSetUp]
         public void TestFixtureSetUp()
@@ -28,22 +28,26 @@ namespace CalculatorTestFramework
 
             application = Desktop.LaunchAut("C:\\Users\\Jan Baetens\\source\\repos\\Calculator\\Calculator\\bin\\Debug\\Calculator.exe");
 
-            var calculatorWindow = Desktop.Describe<IWindow>(new WindowDescription
+            var applicationWindow = Desktop.Describe<IWindow>(new WindowDescription
             {
                 WindowTitleRegExp = @"Calculator",
                 ObjectName = @"Calculator",
                 FullType = @"window"
             });
 
-            calculatorWindow.WaitUntilVisible();
+            applicationWindow.WaitUntilVisible();
 
-            calculatorPage = new CalculatorPage(calculatorWindow);
+            calculatorWindow = new CalculatorWindow(applicationWindow);
         }
 
         [SetUp]
         public void SetUp()
-        { 
+        {
             // Before each test
+            var output = calculatorWindow.GetOutput();
+            if (output != null && output.Equals("Off")) { 
+                calculatorWindow.Click("On");
+            }
         }
 
         [Test]
@@ -51,31 +55,50 @@ namespace CalculatorTestFramework
         public void ClickOnePlusSixTest()
         {
             // Assert output is Off
-            Assert.That(this.calculatorPage.GetOutput().Equals("Off"));
 
             // Enable calc and do calculation 1+6
-            this.calculatorPage.Click("On");
-            this.calculatorPage.Click("One");
-            this.calculatorPage.Click("Add");
-            this.calculatorPage.Click("Six");
-            this.calculatorPage.Click("Calc");
+            calculatorWindow.Click("One");
+            calculatorWindow.Click("Add");
+            calculatorWindow.Click("Six");
+            calculatorWindow.Click("Calc");
 
             // Assert out is 1+6= 7
-            Assert.That(this.calculatorPage.GetOutput().Equals("1+6= 7"));
+            Assert.That(calculatorWindow.GetOutput().Equals("1+6= 7"));
 
             // Clear and disable calc
-            this.calculatorPage.Click("Clear");
-            this.calculatorPage.Click("Off");
-
-            // Assert out is Off
-            Assert.That(this.calculatorPage.GetOutput().Equals("Off"));
+            calculatorWindow.Click("Clear");
         }
-        
+
+        [Test]
+        public void ClickTwoPlusMultiplierTest()
+        {
+            calculatorWindow.Click("Two");
+            calculatorWindow.Click("Add");
+            calculatorWindow.Click("Multiply");
+            calculatorWindow.Click("Calc");
+            Assert.That(calculatorWindow.GetOutput().Equals("Error! Try again."));
+        }
+
+        [Test]
+        public void ClickThreeMinusNineTest()
+        {
+            calculatorWindow.Click("Three");
+            calculatorWindow.Click("Minus");
+            calculatorWindow.Click("Nine");
+            calculatorWindow.Click("Calc");
+            Assert.That(calculatorWindow.GetOutput().Equals("3-9= -6"));
+        }
+
 
         [TearDown]
         public void TearDown()
         {
             // Clean up after each test
+            var output = calculatorWindow.GetOutput();
+            if (output == null || !output.Equals("Off"))
+            {
+                calculatorWindow.Click("Off");
+            }
         }
 
         [OneTimeTearDown]

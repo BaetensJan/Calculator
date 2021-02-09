@@ -81,9 +81,9 @@
     <Compile Include="CalculatorApplicationModel.tsrx.cs">
       <DependentUpon>CalculatorApplicationModel.tsrx</DependentUpon>
     </Compile>
-    <Compile Include="PageObjects\CalculatorPage.cs" />
+    <Compile Include="WindowObjects\CalculatorWindow.cs" />
     <Compile Include="UftDeveloperTestUsingApplicationModels.cs" />
-    <Compile Include="UftDeveloperTestUsingPageObjects.cs" />
+    <Compile Include="UftDeveloperTestUsingWindowObjects.cs" />
     <Compile Include="UnitTestClassBase.cs" />
     <None Include="App.config" />
     <Compile Include="Properties\AssemblyInfo.cs" />

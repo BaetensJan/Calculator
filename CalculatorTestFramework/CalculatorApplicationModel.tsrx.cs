@@ -59,6 +59,11 @@ namespace CalculatorTestFramework
 				ClearButton = new ClearButtonNode(this, applicationModel);
 				OutputField = new OutputFieldNode(this, applicationModel);
 				CalcButton = new CalcButtonNode(this, applicationModel);
+				MultiplyButton = new MultiplyButtonNode(this, applicationModel);
+				TwoButton = new TwoButtonNode(this, applicationModel);
+				ThreeButton = new ThreeButtonNode(this, applicationModel);
+				MinusButton = new MinusButtonNode(this, applicationModel);
+				NineButton = new NineButtonNode(this, applicationModel);
 				DisplayName = @"Calculator";
 			}
 		
@@ -72,6 +77,11 @@ namespace CalculatorTestFramework
 				ClearButton = new ClearButtonNode(this, applicationModel);
 				OutputField = new OutputFieldNode(this, applicationModel);
 				CalcButton = new CalcButtonNode(this, applicationModel);
+				MultiplyButton = new MultiplyButtonNode(this, applicationModel);
+				TwoButton = new TwoButtonNode(this, applicationModel);
+				ThreeButton = new ThreeButtonNode(this, applicationModel);
+				MinusButton = new MinusButtonNode(this, applicationModel);
+				NineButton = new NineButtonNode(this, applicationModel);
 				DisplayName = @"Calculator";
 			}
 		
@@ -100,6 +110,11 @@ namespace CalculatorTestFramework
 			public ClearButtonNode ClearButton { get; private set; }
 			public OutputFieldNode OutputField { get; private set; }
 			public CalcButtonNode CalcButton { get; private set; }
+			public MultiplyButtonNode MultiplyButton { get; private set; }
+			public TwoButtonNode TwoButton { get; private set; }
+			public ThreeButtonNode ThreeButton { get; private set; }
+			public MinusButtonNode MinusButton { get; private set; }
+			public NineButtonNode NineButton { get; private set; }
 		
 			#endregion
 		
@@ -297,6 +312,131 @@ namespace CalculatorTestFramework
 					return new HP.LFT.SDK.WPF.ButtonDescription {
 					ObjectName = @"calcButton",
 					Text = @"="
+				};
+				}
+			
+				#endregion
+			
+			}
+
+			public sealed class MultiplyButtonNode : ButtonNodeBase
+			{
+				#region Constructors
+			
+				public MultiplyButtonNode(ITestObject parent, AppModelBase applicationModel) : base(parent, applicationModel)
+				{
+					DisplayName = @"*";
+				}
+			
+				#endregion
+			
+				#region Description
+			
+				protected override HP.LFT.SDK.WPF.ButtonDescription CreateDescription()
+				{
+					return new HP.LFT.SDK.WPF.ButtonDescription {
+					ObjectName = @"multButton",
+					Text = @"*"
+				};
+				}
+			
+				#endregion
+			
+			}
+
+			public sealed class TwoButtonNode : ButtonNodeBase
+			{
+				#region Constructors
+			
+				public TwoButtonNode(ITestObject parent, AppModelBase applicationModel) : base(parent, applicationModel)
+				{
+					DisplayName = @"2";
+				}
+			
+				#endregion
+			
+				#region Description
+			
+				protected override HP.LFT.SDK.WPF.ButtonDescription CreateDescription()
+				{
+					return new HP.LFT.SDK.WPF.ButtonDescription {
+					ObjectName = @"twoButton",
+					Text = @"2"
+				};
+				}
+			
+				#endregion
+			
+			}
+
+			public sealed class ThreeButtonNode : ButtonNodeBase
+			{
+				#region Constructors
+			
+				public ThreeButtonNode(ITestObject parent, AppModelBase applicationModel) : base(parent, applicationModel)
+				{
+					DisplayName = @"3";
+				}
+			
+				#endregion
+			
+				#region Description
+			
+				protected override HP.LFT.SDK.WPF.ButtonDescription CreateDescription()
+				{
+					return new HP.LFT.SDK.WPF.ButtonDescription {
+					ObjectName = @"threeButton",
+					Text = @"3"
+				};
+				}
+			
+				#endregion
+			
+			}
+
+			public sealed class MinusButtonNode : ButtonNodeBase
+			{
+				#region Constructors
+			
+				public MinusButtonNode(ITestObject parent, AppModelBase applicationModel) : base(parent, applicationModel)
+				{
+					DisplayName = @"-";
+				}
+			
+				#endregion
+			
+				#region Description
+			
+				protected override HP.LFT.SDK.WPF.ButtonDescription CreateDescription()
+				{
+					return new HP.LFT.SDK.WPF.ButtonDescription {
+					ObjectName = @"subButton",
+					Text = @"-"
+				};
+				}
+			
+				#endregion
+			
+			}
+
+			public sealed class NineButtonNode : ButtonNodeBase
+			{
+				#region Constructors
+			
+				public NineButtonNode(ITestObject parent, AppModelBase applicationModel) : base(parent, applicationModel)
+				{
+					DisplayName = @"9";
+				}
+			
+				#endregion
+			
+				#region Description
+			
+				protected override HP.LFT.SDK.WPF.ButtonDescription CreateDescription()
+				{
+					return new HP.LFT.SDK.WPF.ButtonDescription {
+					ObjectName = @"nineButton",
+					Text = @"9"
 				};
 				}
 			
