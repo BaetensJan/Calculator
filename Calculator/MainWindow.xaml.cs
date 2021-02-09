@@ -151,7 +151,7 @@ namespace Calculator
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void OpenSettings(object sender, RoutedEventArgs e)
         {
             SettingsWindow popup = new SettingsWindow();
             popup.ShowDialog();

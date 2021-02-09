@@ -27,6 +27,6 @@
                 <Button x:Name="decPointButton" IsEnabled="False" Content="." HorizontalAlignment="Left" Margin="78,108,0,0" VerticalAlignment="Top" Width="34" Click="NumOpButton_Click"/>
             </Grid>
         </Viewbox>
-        <Button FontFamily="Segoe MDL2 Assets" Content="&#xF8B0;" Margin="0,0,10,10" HorizontalAlignment="Right" Width="20" Height="20" VerticalAlignment="Bottom" Click="Button_Click"/>
+        <Button x:Name="settingsButton" FontFamily="Segoe MDL2 Assets" Content="&#xF8B0;" Margin="0,0,10,10" HorizontalAlignment="Right" Width="20" Height="20" VerticalAlignment="Bottom" Click="OpenSettings"/>
     </Grid>
 </Window>

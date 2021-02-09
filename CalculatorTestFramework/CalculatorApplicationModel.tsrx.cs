@@ -23,6 +23,7 @@ namespace CalculatorTestFramework
 		{
 			Name = @"CalculatorApplicationModel";
 			CalculatorWindow = new CalculatorWindowNode(this);
+			SettingsWindow = new SettingsWindowNode(this);
 			RebuildDescriptions();
 			
 		}
@@ -31,6 +32,7 @@ namespace CalculatorTestFramework
 		{
 			Name = @"CalculatorApplicationModel";
 			CalculatorWindow = new CalculatorWindowNode(contextTestObject, this);
+			SettingsWindow = new SettingsWindowNode(contextTestObject, this);
 			RebuildDescriptions();
 			
 		}
@@ -40,6 +42,7 @@ namespace CalculatorTestFramework
 		#region Test Objects
 	
 		public CalculatorWindowNode CalculatorWindow { get; private set; }
+		public SettingsWindowNode SettingsWindow { get; private set; }
 	
 		#endregion
 	
@@ -64,6 +67,7 @@ namespace CalculatorTestFramework
 				ThreeButton = new ThreeButtonNode(this, applicationModel);
 				MinusButton = new MinusButtonNode(this, applicationModel);
 				NineButton = new NineButtonNode(this, applicationModel);
+				SettingsButton = new SettingsButtonNode(this, applicationModel);
 				DisplayName = @"Calculator";
 			}
 		
@@ -82,6 +86,7 @@ namespace CalculatorTestFramework
 				ThreeButton = new ThreeButtonNode(this, applicationModel);
 				MinusButton = new MinusButtonNode(this, applicationModel);
 				NineButton = new NineButtonNode(this, applicationModel);
+				SettingsButton = new SettingsButtonNode(this, applicationModel);
 				DisplayName = @"Calculator";
 			}
 		
@@ -115,6 +120,7 @@ namespace CalculatorTestFramework
 			public ThreeButtonNode ThreeButton { get; private set; }
 			public MinusButtonNode MinusButton { get; private set; }
 			public NineButtonNode NineButton { get; private set; }
+			public SettingsButtonNode SettingsButton { get; private set; }
 		
 			#endregion
 		
@@ -437,6 +443,97 @@ namespace CalculatorTestFramework
 					return new HP.LFT.SDK.WPF.ButtonDescription {
 					ObjectName = @"nineButton",
 					Text = @"9"
+				};
+				}
+			
+				#endregion
+			
+			}
+
+			public sealed class SettingsButtonNode : ButtonNodeBase
+			{
+				#region Constructors
+			
+				public SettingsButtonNode(ITestObject parent, AppModelBase applicationModel) : base(parent, applicationModel)
+				{
+					DisplayName = @"SettingsButton";
+				}
+			
+				#endregion
+			
+				#region Description
+			
+				protected override HP.LFT.SDK.WPF.ButtonDescription CreateDescription()
+				{
+					return new HP.LFT.SDK.WPF.ButtonDescription {
+					ObjectName = @"settingsButton"
+				};
+				}
+			
+				#endregion
+			
+			}
+
+			#endregion
+		}
+
+		public sealed class SettingsWindowNode : WindowNodeBase
+		{
+			#region Constructors
+		
+			public SettingsWindowNode(AppModelBase applicationModel) : base(applicationModel)
+			{
+				BackButton = new BackButtonNode(this, applicationModel);
+				DisplayName = @"Settings";
+			}
+		
+			public SettingsWindowNode(ITestObject parent, AppModelBase applicationModel) : base(parent, applicationModel)
+			{
+				BackButton = new BackButtonNode(this, applicationModel);
+				DisplayName = @"Settings";
+			}
+		
+			#endregion
+		
+			#region Description
+		
+			protected override HP.LFT.SDK.WPF.WindowDescription CreateDescription()
+			{
+				return new HP.LFT.SDK.WPF.WindowDescription {
+				WindowTitleRegExp = @"Settings",
+				ObjectName = @"Settings",
+				FullType = @"window"
+			};
+			}
+		
+			#endregion
+		
+			#region Test Objects
+		
+			public BackButtonNode BackButton { get; private set; }
+		
+			#endregion
+		
+			#region Inner Classes
+		
+			public sealed class BackButtonNode : ButtonNodeBase
+			{
+				#region Constructors
+			
+				public BackButtonNode(ITestObject parent, AppModelBase applicationModel) : base(parent, applicationModel)
+				{
+					DisplayName = @"Back";
+				}
+			
+				#endregion
+			
+				#region Description
+			
+				protected override HP.LFT.SDK.WPF.ButtonDescription CreateDescription()
+				{
+					return new HP.LFT.SDK.WPF.ButtonDescription {
+					ObjectName = @"CloseButton",
+					Text = @"Back"
 				};
 				}
 			

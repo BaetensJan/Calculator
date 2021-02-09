@@ -85,6 +85,7 @@
     <Compile Include="UftDeveloperTestUsingApplicationModels.cs" />
     <Compile Include="UftDeveloperTestUsingWindowObjects.cs" />
     <Compile Include="UnitTestClassBase.cs" />
+    <Compile Include="WindowObjects\SettingsWindow.cs" />
     <None Include="App.config" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="CalculatorApplicationModel.tsrx">

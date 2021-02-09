@@ -87,6 +87,13 @@ namespace CalculatorTestFramework
             Assert.That(calculatorApplicationModel.CalculatorWindow.OutputField.Text.Equals("3-9= -6"));
         }
 
+        [Test]
+        public void OpenAndCloseSettingsWindow()
+        {
+            calculatorApplicationModel.CalculatorWindow.SettingsButton.Click();
+            calculatorApplicationModel.SettingsWindow.BackButton.Click();
+        }
+
         [TearDown]
         public void TearDown()
         {

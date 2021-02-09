@@ -3,7 +3,7 @@ using NUnit.Framework;
 using HP.LFT.SDK;
 using HP.LFT.SDK.WPF;
 using HP.LFT.Verifications;
-using UFTDeveloperTestProject1.PageObjects;
+using CalculatorTestFramework.WindowObjects;
 
 namespace CalculatorTestFramework
 {
@@ -14,6 +14,7 @@ namespace CalculatorTestFramework
 
         private IAut application;
         private CalculatorWindow calculatorWindow;
+        private SettingsWindow settingsWindow;
 
         [OneTimeSetUp]
         public void TestFixtureSetUp()
@@ -28,16 +29,8 @@ namespace CalculatorTestFramework
 
             application = Desktop.LaunchAut("C:\\Users\\Jan Baetens\\source\\repos\\Calculator\\Calculator\\bin\\Debug\\Calculator.exe");
 
-            var applicationWindow = Desktop.Describe<IWindow>(new WindowDescription
-            {
-                WindowTitleRegExp = @"Calculator",
-                ObjectName = @"Calculator",
-                FullType = @"window"
-            });
-
-            applicationWindow.WaitUntilVisible();
-
-            calculatorWindow = new CalculatorWindow(applicationWindow);
+            calculatorWindow = new CalculatorWindow();
+            settingsWindow = new SettingsWindow();
         }
 
         [SetUp]
@@ -87,6 +80,13 @@ namespace CalculatorTestFramework
             calculatorWindow.Click("Nine");
             calculatorWindow.Click("Calc");
             Assert.That(calculatorWindow.GetOutput().Equals("3-9= -6"));
+        }
+
+        [Test]
+        public void OpenAndCloseSettingsWindow()
+        {
+            calculatorWindow.OpenSettings();
+            settingsWindow.CloseSettings();
         }
 
 

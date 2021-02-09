@@ -3,13 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HP.LFT.SDK;
 using HP.LFT.SDK.WPF;
 
-namespace UFTDeveloperTestProject1.PageObjects
+namespace CalculatorTestFramework.WindowObjects
 {
     public class CalculatorWindow
     {
-        protected IWindow window;
+        protected IWindow window = Desktop.Describe<IWindow>(new WindowDescription
+        {
+            WindowTitleRegExp = @"Calculator",
+            ObjectName = @"Calculator",
+            FullType = @"window"
+        });
 
         protected IButton onButton;
         protected IButton oneButton;
@@ -22,13 +28,12 @@ namespace UFTDeveloperTestProject1.PageObjects
         protected IButton multiplyButton;
         protected IButton calcButton;
         protected IButton clearButton;
+        protected IButton settingsButton;
         protected IButton offButton;
         protected IEditField outputField;
 
-        public CalculatorWindow(IWindow window)
+        public CalculatorWindow()
         {
-            this.window = window;
-
             onButton = window.Describe<IButton>(new ButtonDescription
              {
                  ObjectName = @"onButton",
@@ -105,6 +110,10 @@ namespace UFTDeveloperTestProject1.PageObjects
             {
                 ObjectName = @"displayTextbox"
             });
+            settingsButton = window.Describe<IButton>(new ButtonDescription
+            {
+                ObjectName = @"settingsButton"
+            });
         }
 
         public CalculatorWindow Click(string buttonName)
@@ -149,6 +158,11 @@ namespace UFTDeveloperTestProject1.PageObjects
                     break;
             }
             return this;
+        }
+
+        public void OpenSettings()
+        {
+            settingsButton.Click();
         }
 
         public string GetOutput()

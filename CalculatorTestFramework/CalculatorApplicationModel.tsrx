@@ -157,6 +157,41 @@
             </properties>
           </identification>
         </object>
+        <object technology="WPF" type="Button">
+          <name>SettingsButton</name>
+          <codeName>SettingsButton</codeName>
+          <description />
+          <identification>
+            <properties>
+              <property name="ObjectName" type="string">settingsButton</property>
+            </properties>
+          </identification>
+        </object>
+      </children>
+    </object>
+    <object technology="WPF" type="Window">
+      <name>Settings</name>
+      <codeName>SettingsWindow</codeName>
+      <description />
+      <identification>
+        <properties>
+          <property name="WindowTitleRegExp" type="string">Settings</property>
+          <property name="ObjectName" type="string">Settings</property>
+          <property name="FullType" type="string">window</property>
+        </properties>
+      </identification>
+      <children>
+        <object technology="WPF" type="Button">
+          <name>Back</name>
+          <codeName>BackButton</codeName>
+          <description />
+          <identification>
+            <properties>
+              <property name="ObjectName" type="string">CloseButton</property>
+              <property name="Text" type="string">Back</property>
+            </properties>
+          </identification>
+        </object>
       </children>
     </object>
   </objects>
