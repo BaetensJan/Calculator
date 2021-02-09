@@ -21,12 +21,37 @@ namespace Calculator
     public partial class MainWindow : Window
     {
         Calculate cal = new Calculate();
+        bool buttonboxIsEnabled = false;
 
         public MainWindow()
         {
             InitializeComponent();
-            buttonsbox.IsEnabled = false;
             displayTextbox.IsEnabled = false;
+        }
+
+        private void ToggleButtonFunctionality()
+        {
+            buttonboxIsEnabled = !buttonboxIsEnabled;
+            
+            onButton.IsEnabled = !buttonboxIsEnabled;
+            offButton.IsEnabled = buttonboxIsEnabled;
+            clearButton.IsEnabled = buttonboxIsEnabled;
+            multButton.IsEnabled = buttonboxIsEnabled;
+            oneButton.IsEnabled = buttonboxIsEnabled;
+            twoButton.IsEnabled = buttonboxIsEnabled;
+            threeButton.IsEnabled = buttonboxIsEnabled;
+            fourButton.IsEnabled = buttonboxIsEnabled;
+            fiveButton.IsEnabled = buttonboxIsEnabled;
+            sixButton.IsEnabled = buttonboxIsEnabled;
+            sevenButton.IsEnabled = buttonboxIsEnabled;
+            eightButton.IsEnabled = buttonboxIsEnabled;
+            nineButton.IsEnabled = buttonboxIsEnabled;
+            zeroButton.IsEnabled = buttonboxIsEnabled;
+            divButton.IsEnabled = buttonboxIsEnabled;
+            addButton.IsEnabled = buttonboxIsEnabled;
+            subButton.IsEnabled = buttonboxIsEnabled;
+            calcButton.IsEnabled = buttonboxIsEnabled;
+            decPointButton.IsEnabled = buttonboxIsEnabled;
         }
 
 
@@ -53,13 +78,13 @@ namespace Calculator
             if (sender == onButton)
             {
                 displayTextbox.Text = "";
-                buttonsbox.IsEnabled = true;
+                ToggleButtonFunctionality();
                 displayTextbox.IsEnabled = true;
             }
             else if (sender == offButton)
             {
                 displayTextbox.Text = "Off";
-                buttonsbox.IsEnabled = false;
+                ToggleButtonFunctionality();
                 displayTextbox.IsEnabled = false;
             }
             else if (sender == clearButton)
@@ -124,6 +149,12 @@ namespace Calculator
                 result = cal.subtract(value1, value2);
                 displayTextbox.Text += "= " + result.ToString();
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            SettingsWindow popup = new SettingsWindow();
+            popup.ShowDialog();
         }
     }
 }

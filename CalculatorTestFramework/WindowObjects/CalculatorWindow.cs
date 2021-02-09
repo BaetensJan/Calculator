@@ -10,6 +10,7 @@ namespace UFTDeveloperTestProject1.PageObjects
     public class CalculatorWindow
     {
         protected IWindow window;
+
         protected IButton onButton;
         protected IButton oneButton;
         protected IButton twoButton;
