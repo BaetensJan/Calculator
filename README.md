@@ -1,6 +1,7 @@
 # Calculator
 
-By <a href="http://jrliv.com/about/" target="_blank">Jae Logan</a>
+- Application by <a href="http://jrliv.com/about/" target="_blank">Jae Logan</a>
+- UFT project by Baetens Jan
 
 ## Description
 
