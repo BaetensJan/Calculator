@@ -24,6 +24,7 @@ namespace CalculatorTestFramework
             // To make your app start up, follow instructions here
             // https://admhelp.microfocus.com/uftdev/en/15.0-15.0.2/NetSDKReference/webframe.html#CodeSamples_.NET/LaunchAUT_Samples.htm
 
+            //TODO: change to your own dir
             application = Desktop.LaunchAut("C:\\Users\\Jan Baetens\\source\\repos\\Calculator\\Calculator\\bin\\Debug\\Calculator.exe");
 
             var calculatorWindow = Desktop.Describe<IWindow>(new WindowDescription
